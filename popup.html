@@ -34,30 +34,7 @@
     </div>
 
     <script src="popup.js"></script>
-    <script>
-        // --- Sync Range and Number Inputs (New Logic) ---
-        // This is necessary because popup.js only interacts with #weightFPS, etc.
-        // We link the new range inputs to the existing number inputs.
-        document.getElementById('rangeFPS').addEventListener('input', function() {
-            document.getElementById('weightFPS').value = this.value;
-            document.getElementById('weightFPS').dispatchEvent(new Event('change'));
-        });
-        document.getElementById('rangePing').addEventListener('input', function() {
-            document.getElementById('weightPing').value = this.value;
-            document.getElementById('weightPing').dispatchEvent(new Event('change'));
-        });
-        document.getElementById('rangePlayers').addEventListener('input', function() {
-            document.getElementById('weightPlayers').value = this.value;
-            document.getElementById('weightPlayers').dispatchEvent(new Event('change'));
-        });
-
-        // The existing popup.js logic will handle fetching servers on 'change' of the number inputs.
-        
-        // Load initial values from number inputs to range inputs on script load
-        document.getElementById('rangeFPS').value = document.getElementById('weightFPS').value;
-        document.getElementById('rangePing').value = document.getElementById('weightPing').value;
-        document.getElementById('rangePlayers').value = document.getElementById('weightPlayers').value;
-
-    </script>
+    
+    <script src="popup_sync.js"></script> 
 </body>
 </html>
