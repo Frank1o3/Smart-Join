@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Roblox Best Server Selector</title>
+    <title>Top Roblox Servers</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h3>Roblox Best Server</h3>
+    <div class="header">
+        <h3 class="title">Top Roblox Servers</h3>
+        <span class="close-btn">&times;</span>
+    </div>
 
+    <div id="status"></div>
     <div id="serverList"></div>
 
-    <button id="refresh">Refresh Servers</button>
+    <button id="refresh">Refresh</button>
 
-    <h4>Customize Weights</h4>
-    <label>FPS: <input type="number" id="weightFPS" value="1" min="0" step="0.1"></label><br>
-    <label>Ping: <input type="number" id="weightPing" value="1" min="0" step="0.1"></label><br>
-    <label>Players: <input type="number" id="weightPlayers" value="1" min="0" step="0.1"></label>
-
-    <p id="status"></p>
+    <div class="weights-container">
+        <div class="weight-item">
+            <label for="weightFPS">FPS</label>
+            <input type="range" id="rangeFPS" value="0.5" min="0" max="1" step="0.1">
+            <input type="number" id="weightFPS" value="0.5" min="0" max="1" step="0.1" class="weight-value-input">
+        </div>
+        <div class="weight-item">
+            <label for="weightPing">Ping</label>
+            <input type="range" id="rangePing" value="0.2" min="0" max="1" step="0.1">
+            <input type="number" id="weightPing" value="0.2" min="0" max="1" step="0.1" class="weight-value-input">
+        </div>
+        <div class="weight-item">
+            <label for="weightPlayers">Players</label>
+            <input type="range" id="rangePlayers" value="0.3" min="0" max="1" step="0.1">
+            <input type="number" id="weightPlayers" value="0.3" min="0" max="1" step="0.1" class="weight-value-input">
+        </div>
+    </div>
 
     <script src="popup.js"></script>
+    <script>
+        // --- Sync Range and Number Inputs (New Logic) ---
+        // This is necessary because popup.js only interacts with #weightFPS, etc.
+        // We link the new range inputs to the existing number inputs.
+        document.getElementById('rangeFPS').addEventListener('input', function() {
+            document.getElementById('weightFPS').value = this.value;
+            document.getElementById('weightFPS').dispatchEvent(new Event('change'));
+        });
+        document.getElementById('rangePing').addEventListener('input', function() {
+            document.getElementById('weightPing').value = this.value;
+            document.getElementById('weightPing').dispatchEvent(new Event('change'));
+        });
+        document.getElementById('rangePlayers').addEventListener('input', function() {
+            document.getElementById('weightPlayers').value = this.value;
+            document.getElementById('weightPlayers').dispatchEvent(new Event('change'));
+        });
+
+        // The existing popup.js logic will handle fetching servers on 'change' of the number inputs.
+        
+        // Load initial values from number inputs to range inputs on script load
+        document.getElementById('rangeFPS').value = document.getElementById('weightFPS').value;
+        document.getElementById('rangePing').value = document.getElementById('weightPing').value;
+        document.getElementById('rangePlayers').value = document.getElementById('weightPlayers').value;
+
+    </script>
 </body>
 </html>

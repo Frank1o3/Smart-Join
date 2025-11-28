@@ -1,45 +1,142 @@
 body {
-    font-family: Arial, sans-serif;
-    width: 300px;
-    padding: 10px;
-    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    width: 320px; /* Wider to accommodate the design */
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h3, h4 { margin: 5px 0; }
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
 
-button {
-    padding: 8px;
-    margin-top: 5px;
-    width: 100%;
-    font-size: 14px;
+.title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close-btn {
     cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    color: #999;
 }
 
 #status {
+    padding: 0 20px;
     margin-top: 10px;
-    font-size: 13px;
-    color: #333;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
 }
 
 #serverList {
-    margin: 5px 0;
+    margin: 10px 20px;
 }
 
 .server-item {
-    padding: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 5px;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 8px;
     background-color: #fff;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .server-item.best {
-    border: 2px solid #007bff;
-    font-weight: bold;
+    border: 2px solid #34c759; /* Green border for the best server */
+    background-color: #e6ffec; /* Light green background */
+    font-weight: 600;
 }
 
 .server-item:hover {
-    background-color: #e0e0e0;
+    background-color: #f7f7f7;
+}
+
+/* Specific styling for the content inside server-item to match screenshot */
+.server-item > span {
+    margin-right: 15px;
+}
+/* The server list population in popup.js needs modification to fully support this
+   The script currently uses div.textContent, which is not ideal for structured
+   display. I will update popup.js to create spans for better structure.
+*/
+
+#refresh {
+    padding: 10px;
+    margin: 5px 20px 15px 20px;
+    width: calc(100% - 40px);
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007aff; /* iOS Blue */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#refresh:hover {
+    background-color: #005bb5;
+}
+
+.weights-container {
+    padding: 10px 20px 20px 20px;
+    border-top: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+.weight-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.weight-item label {
+    width: 60px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.weight-item input[type="range"] {
+    flex-grow: 1;
+    margin: 0 10px;
+    height: 4px; /* Thinner track */
+    appearance: inherit;
+    -webkit-appearance: none;
+    background: #d4d4d4;
+    border-radius: 2px;
+}
+
+.weight-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #007aff; /* Blue thumb */
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.weight-value-input {
+    width: 50px;
+    padding: 5px;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
 }

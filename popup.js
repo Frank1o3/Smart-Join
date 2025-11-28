@@ -45,7 +45,14 @@ function fetchServers() {
             const div = document.createElement('div');
             div.className = 'server-item';
             if (index === 0) div.classList.add('best');
-            div.textContent = `FPS: ${server.fps}, Ping: ${server.ping}, Players: ${server.playing}`;
+            
+            // Use spans for better styling and separation (to match the screenshot)
+            div.innerHTML = `
+                <span class="server-fps">FPS: ${server.fps}</span>
+                <span class="server-ping">Ping: ${server.ping}</span>
+                <span class="server-players">Players: ${server.playing}</span>
+            `;
+
             div.addEventListener('click', () => {
                 chrome.tabs.update({ url: `https://www.roblox.com/games/start?placeId=${gameId}&vipServerId=${server.id}` });
             });
