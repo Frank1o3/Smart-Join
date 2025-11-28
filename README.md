@@ -1,3 +1,23 @@
 # Roblox Best Server Selector
 
-Roblox Best Server Selector improves your Roblox gaming experience by helping you find and join the optimal servers. The extension fetches the top servers for the game you are currently viewing and highlights the best one automatically. You can also customize how servers are ranked using adjustable weights for FPS, ping, and player count. The extension integrates seamlessly with the Roblox Play button, allowing you to always join the best server with a single click. Weights are remembered across sessions for convenience, and the lightweight design ensures minimal impact on your browsing experience.
+**Roblox Best Server Selector** is a lightweight browser extension that helps Roblox players find and join the optimal servers for any game.  
+
+## Features
+
+- Highlights the best server automatically based on FPS, ping, and player count.
+- Adjustable weights for FPS, ping, and player count to suit your preference.
+- Integrated with Roblox Play button for one-click server joining.
+- Top 3 servers displayed in popup for quick selection.
+- Remember weight settings across sessions for convenience.
+- Lightweight, minimal impact on browsing experience.
+
+## How to Use
+
+1. Navigate to a Roblox game page.
+2. Click the extension icon to open the popup.
+3. Adjust the server weights if desired.
+4. Select a server from the top 3 or simply click the Play button — the extension will automatically redirect you to the best server.
+
+## Screenshot
+
+![Popup Screenshot](screenshot.png)
