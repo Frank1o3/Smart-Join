@@ -20,15 +20,13 @@ function sendWeights() {
     chrome.runtime.sendMessage({ action: 'setWeights', weights });
 }
 
-function fetchServers() {
-    const urlParts = window.location.pathname.split('/');
-    if (urlParts[1] !== 'games' || !urlParts[2]) {
+function fetchServers(gameId) {
+    if (!gameId) {
         status.textContent = 'Go to a Roblox game page first!';
         serverListDiv.innerHTML = '';
         return;
     }
-
-    const gameId = urlParts[2];
+    
     status.textContent = 'Fetching top servers...';
     serverListDiv.innerHTML = '';
 
@@ -40,13 +38,14 @@ function fetchServers() {
             return;
         }
 
+        // The previous popup.js code for innerHTML generation (using spans) goes here.
         status.textContent = 'Select a server to join:';
         servers.forEach((server, index) => {
             const div = document.createElement('div');
             div.className = 'server-item';
             if (index === 0) div.classList.add('best');
             
-            // Use spans for better styling and separation (to match the screenshot)
+            // Using spans for better styling and separation
             div.innerHTML = `
                 <span class="server-fps">FPS: ${server.fps}</span>
                 <span class="server-ping">Ping: ${server.ping}</span>
@@ -54,12 +53,33 @@ function fetchServers() {
             `;
 
             div.addEventListener('click', () => {
+                // Use the detected gameId for joining
                 chrome.tabs.update({ url: `https://www.roblox.com/games/start?placeId=${gameId}&vipServerId=${server.id}` });
             });
             serverListDiv.appendChild(div);
         });
     });
 }
+
+function getGameIdAndFetch() {
+    // 1. Get the active tab's information
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const activeTab = tabs[0];
+        const url = activeTab.url;
+        
+        // 2. Check if the URL is a Roblox game page
+        const match = url.match(/https:\/\/www\.roblox\.com\/games\/(\d+)\//);
+
+        let gameId = null;
+        if (match) {
+            gameId = match[1]; // The first captured group is the Game ID
+        }
+
+        // 3. Call fetchServers with the Game ID (or null if not found)
+        fetchServers(gameId);
+    });
+}
+
 
 // Load saved weights on popup open
 chrome.storage.sync.get(['serverWeights'], (result) => {
@@ -70,12 +90,12 @@ chrome.storage.sync.get(['serverWeights'], (result) => {
     }
     // Send the loaded weights to background
     sendWeights();
-    // Fetch servers
-    fetchServers();
+    // Fetch servers using the new logic
+    getGameIdAndFetch();
 });
 
 // Event listeners
-refreshBtn.addEventListener('click', fetchServers);
-weightFPS.addEventListener('change', fetchServers);
-weightPing.addEventListener('change', fetchServers);
-weightPlayers.addEventListener('change', fetchServers);
+refreshBtn.addEventListener('click', getGameIdAndFetch); // Updated to use new function
+weightFPS.addEventListener('change', getGameIdAndFetch); // Updated to use new function
+weightPing.addEventListener('change', getGameIdAndFetch); // Updated to use new function
+weightPlayers.addEventListener('change', getGameIdAndFetch); // Updated to use new function
