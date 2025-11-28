@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 300px;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+h3, h4 { margin: 5px 0; }
+
+button {
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #333;
+}
+
+#serverList {
+    margin: 5px 0;
+}
+
+.server-item {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.server-item.best {
+    border: 2px solid #007bff;
+    font-weight: bold;
+}
+
+.server-item:hover {
+    background-color: #e0e0e0;
+}

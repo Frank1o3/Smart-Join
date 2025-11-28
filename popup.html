@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox Best Server Selector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h3>Roblox Best Server</h3>
+
+    <div id="serverList"></div>
+
+    <button id="refresh">Refresh Servers</button>
+
+    <h4>Customize Weights</h4>
+    <label>FPS: <input type="number" id="weightFPS" value="1" min="0" step="0.1"></label><br>
+    <label>Ping: <input type="number" id="weightPing" value="1" min="0" step="0.1"></label><br>
+    <label>Players: <input type="number" id="weightPlayers" value="1" min="0" step="0.1"></label>
+
+    <p id="status"></p>
+
+    <script src="popup.js"></script>
+</body>
+</html>

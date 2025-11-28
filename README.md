@@ -1,2 +1,3 @@
-# Smart Join
-This Browser extension is for revamping the roblox play button
+# Roblox Best Server Selector
+
+Roblox Best Server Selector improves your Roblox gaming experience by helping you find and join the optimal servers. The extension fetches the top servers for the game you are currently viewing and highlights the best one automatically. You can also customize how servers are ranked using adjustable weights for FPS, ping, and player count. The extension integrates seamlessly with the Roblox Play button, allowing you to always join the best server with a single click. Weights are remembered across sessions for convenience, and the lightweight design ensures minimal impact on your browsing experience.
