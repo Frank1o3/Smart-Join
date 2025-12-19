@@ -34,7 +34,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Build extension
-        run: npm run build:ext
+        run: npm run build
 
       - name: Package extension
         run: |
