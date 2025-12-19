@@ -1,0 +1,32 @@
+{
+  "name": "smart-join",
+  "version": "1.0.0",
+  "description": "**Roblox Best Server Selector** is a lightweight browser extension that helps Roblox players find and join the optimal servers for any game.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frank1o3/Smart-Join.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Frank1o3/Smart-Join/issues"
+  },
+  "homepage": "https://github.com/Frank1o3/Smart-Join#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.1.32",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
