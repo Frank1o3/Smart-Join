@@ -1,29 +1,61 @@
-name: Build Opera Extension
+name: Release Opera Extension
 
 on:
   push:
     branches: [ main ]
-  pull_request:
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate manifest.json
+      - name: Read version from manifest.json
+        id: version
         run: |
-          jq . src/manifest.json > /dev/null
+          VERSION=$(jq -r '.version' src/manifest.json)
+          if [ "$VERSION" = "null" ] || [ -z "$VERSION" ]; then
+            echo "Version not found in manifest.json"
+            exit 1
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Package extension
         run: |
           cd src
-          zip -r ../opera-extension.zip .
+          zip -r ../opera-extension-v${{ steps.version.outputs.version }}.zip .
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: opera-extension
-          path: opera-extension.zip
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="v${{ steps.version.outputs.version }}"
+          FILE="opera-extension-v${{ steps.version.outputs.version }}.zip"
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release exists, updating assets"
+            gh release upload "$TAG" "$FILE" --clobber
+          else
+            echo "Creating new release"
+            gh release create "$TAG" "$FILE" \
+              --title "Opera Extension $TAG" \
+              --notes "Automated release for version $TAG"
+          fi
+
+      - name: Delete old releases (keep last 5)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          KEEP=5
+          gh release list --limit 100 \
+            | tail -n +$((KEEP + 1)) \
+            | awk '{print $1}' \
+            | while read tag; do
+                echo "Deleting release $tag"
+                gh release delete "$tag" --yes
+              done
