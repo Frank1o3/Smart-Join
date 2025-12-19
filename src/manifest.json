@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Smart Join",
-  "version": "1.2.3a",
+  "version": "1.2.4",
   "description": "Select the best Roblox server based on FPS, ping, and player count.",
   "permissions": [
     "scripting",
