@@ -4,8 +4,6 @@
   "version": "1.2.4",
   "description": "Select the best Roblox server based on FPS, ping, and player count.",
   "homepage_url": "https://Frank1o3.github.io/Smart-Join/",
-  "support_url": "https://Frank1o3.github.io/Smart-Join/support.html",
-  "privacy_policy": "https://Frank1o3.github.io/Smart-Join/privacy.html",
   "permissions": [
     "scripting",
     "activeTab",

@@ -3,3 +3,5 @@ dist/
 test/
 packege-lock.json
 .env
+*.crx
+*.pem

@@ -1,4 +1,4 @@
-import {
+import type {
     ServerMetrics, Weights, Message
 } from "./types";
 
