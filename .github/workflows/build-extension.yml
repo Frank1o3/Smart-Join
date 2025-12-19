@@ -1,0 +1,29 @@
+name: Build Opera Extension
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate manifest.json
+        run: |
+          jq . src/manifest.json > /dev/null
+
+      - name: Package extension
+        run: |
+          cd src
+          zip -r ../opera-extension.zip .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: opera-extension
+          path: opera-extension.zip
