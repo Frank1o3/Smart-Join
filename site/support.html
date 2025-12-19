@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support — Smart Join</title>
+    <style>
+        body {
+            font-family: system-ui, Segoe UI, Roboto, Arial;
+            margin: 2rem;
+            color: #111
+        }
+
+        label {
+            display: block;
+            margin-top: .5rem
+        }
+
+        textarea,
+        input,
+        select {
+            width: 100%;
+            padding: .5rem;
+            margin-top: .25rem
+        }
+
+        button {
+            margin-top: .75rem;
+            padding: .5rem 1rem;
+            background: #0069ff;
+            color: #fff;
+            border: none;
+            border-radius: 6px
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Support & Issue Report</h1>
+    <p>Fill the form below and click <strong>Open GitHub Issue</strong>. The site will take you to GitHub's new issue
+        page with title and body prefilled so you can review and submit.</p>
+
+    <form id="issueForm">
+        <label>Type
+            <select id="type">
+                <option>Bug</option>
+                <option>Feature Request</option>
+                <option>Question</option>
+            </select>
+        </label>
+
+        <label>Title
+            <input id="title" placeholder="Short, descriptive title" required />
+        </label>
+
+        <label>Description / Steps to reproduce
+            <textarea id="body" rows="8" placeholder="Describe the issue or request in detail..." required></textarea>
+        </label>
+
+        <label>Your browser & version
+            <input id="browser" placeholder="e.g. Chrome 121 on Windows 10" />
+        </label>
+
+        <label>Your extension version
+            <input id="version" placeholder="Optional (e.g. 1.2.4)" />
+        </label>
+
+        <button type="submit">Open GitHub Issue</button>
+    </form>
+
+    <script src="/scripts/support.js"></script>
+
+    <p><a href="/">← Back</a></p>
+</body>
+
+</html>

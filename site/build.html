@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Build Instructions — Smart Join</title>
+    <style>
+        body {
+            font-family: system-ui, Segoe UI, Roboto, Arial;
+            margin: 2rem;
+            color: #111
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: .2rem .4rem;
+            border-radius: 4px
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Build & Publish</h1>
+
+    <h2>Build extension</h2>
+    <ol>
+        <li>Install deps: <code>npm install</code></li>
+        <li>Transpile TypeScript and copy extension assets: <code>npm run build:ext</code></li>
+        <li>Resulting extension is in the <code>dist/</code> folder for local loading into your browser.</li>
+    </ol>
+
+    <h2>Build the site (version injection)</h2>
+    <ol>
+        <li>Run <code>npm run build:site</code> — this will read <code>src/manifest.json</code> and create
+            <code>site/version.html</code> with the current version and release details.</li>
+        <li>Preview locally using a static server, e.g. <code>npx serve site</code> or
+            <code>python3 -m http.server 8000 --directory site</code></li>
+    </ol>
+
+    <h2>Publish</h2>
+    <p>This repository includes a GitHub Action that publishes the `site/` folder to the <code>gh-pages</code> branch
+        whenever you push to `main` (or change the workflow). To use GitHub Pages, enable Pages on the repository and
+        use the <code>gh-pages</code> branch or the recommended GitHub Pages settings.</p>
+
+    <h2>Notes</h2>
+    <ul>
+        <li>If you fork this repo, update the homepage/support/privacy URLs in <code>src/manifest.json</code> to point
+            to <code>https://<strong>YOUR_USERNAME</strong>.github.io/Smart-Join/</code>.</li>
+        <li>To change the GitHub Actions deploy behavior, edit <code>.github/workflows/deploy-site.yml</code>.</li>
+    </ul>
+
+    <p><a href="/">← Back</a></p>
+</body>
+
+</html>
