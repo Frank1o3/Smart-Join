@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "build": "tsc",
+    "build:ext": "npm run build && mkdir -p dist && cp src/manifest.json dist/ && cp -r src/*.html dist/ 2>/dev/null || true && cp -r src/*.css dist/ 2>/dev/null || true && cp -r src/_locales dist/_locales 2>/dev/null || true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
