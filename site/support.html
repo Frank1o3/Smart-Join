@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Support – Smart Join</title>
+  <title>Support - Smart Join</title>
+  <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
@@ -19,28 +21,28 @@
       min-height: 100vh;
       padding: 2rem;
     }
-    
+
     .container {
       max-width: 700px;
       margin: 0 auto;
       background: white;
       border-radius: 16px;
       padding: 3rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
-    
+
     h1 {
       color: #667eea;
       margin-bottom: 0.5rem;
       font-size: 2.5rem;
     }
-    
+
     .subtitle {
       color: #666;
       margin-bottom: 2rem;
       font-size: 1.1rem;
     }
-    
+
     label {
       display: block;
       margin-top: 1.5rem;
@@ -48,8 +50,10 @@
       color: #2c3e50;
       margin-bottom: 0.5rem;
     }
-    
-    input, textarea, select {
+
+    input,
+    textarea,
+    select {
       width: 100%;
       padding: 0.75rem;
       border: 2px solid #e0e0e0;
@@ -58,17 +62,19 @@
       font-size: 1rem;
       transition: border-color 0.2s;
     }
-    
-    input:focus, textarea:focus, select:focus {
+
+    input:focus,
+    textarea:focus,
+    select:focus {
       outline: none;
       border-color: #667eea;
     }
-    
+
     textarea {
       resize: vertical;
       min-height: 150px;
     }
-    
+
     button {
       margin-top: 2rem;
       width: 100%;
@@ -83,16 +89,16 @@
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
     }
-    
+
     button:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
     }
-    
+
     button:active {
       transform: translateY(0);
     }
-    
+
     .back-link {
       display: inline-block;
       margin-top: 2rem;
@@ -100,26 +106,28 @@
       text-decoration: none;
       font-weight: 600;
     }
-    
+
     .back-link:hover {
       text-decoration: underline;
     }
-    
+
     @media (max-width: 768px) {
       .container {
         padding: 2rem 1.5rem;
       }
-      
+
       h1 {
         font-size: 2rem;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>🛠️ Support & Issue Report</h1>
-    <p class="subtitle">Fill out the form below to create a GitHub issue. We'll redirect you to GitHub where you can review and submit.</p>
+    <p class="subtitle">Fill out the form below to create a GitHub issue. We'll redirect you to GitHub where you can
+      review and submit.</p>
 
     <form id="issueForm">
       <label for="type">Issue Type</label>
@@ -148,13 +156,13 @@
   </div>
 
   <script>
-    (function(){
+    (function () {
       const form = document.getElementById('issueForm');
-      if(!form) return;
-      
-      form.addEventListener('submit', function(e){
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const type = document.getElementById('type').value;
         const title = document.getElementById('title').value;
         const body = document.getElementById('body').value;
@@ -162,8 +170,8 @@
         const version = document.getElementById('version').value;
 
         let fullBody = `**Type:** ${type}\n\n${body}`;
-        if(browser) fullBody += `\n\n**Browser:** ${browser}`;
-        if(version) fullBody += `\n\n**Extension version:** ${version}`;
+        if (browser) fullBody += `\n\n**Browser:** ${browser}`;
+        if (version) fullBody += `\n\n**Extension version:** ${version}`;
 
         const repo = 'Frank1o3/Smart-Join';
         const url = `https://github.com/${repo}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(fullBody)}`;
@@ -173,4 +181,5 @@
     })();
   </script>
 </body>
+
 </html>

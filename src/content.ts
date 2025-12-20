@@ -10,8 +10,6 @@ import { Message, Server } from "./types";
         }
     };
 
-
-
     function overridePlay(event: MouseEvent): void {
         event.preventDefault();
         event.stopPropagation();
@@ -20,8 +18,14 @@ import { Message, Server } from "./types";
 
         chrome.runtime.sendMessage({ action: "getBestServer", gameId } as Message, (server: Server | null) => {
             if (server) {
-                window.location.href = `https://www.roblox.com/games/start?placeId=${gameId}&vipServerId=${server.id}`;
+                // Open in new tab instead of changing current URL
+                chrome.runtime.sendMessage({ 
+                    action: "openServerInNewTab", 
+                    gameId, 
+                    serverId: server.id 
+                });
             } else {
+                // If no server found, use default play behavior
                 (event.target as HTMLElement).click();
             }
         });

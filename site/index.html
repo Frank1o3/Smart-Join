@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smart Join – Roblox Server Browser Extension</title>
+  <title>Smart Join - Roblox Server Browser Extension</title>
   <meta name="description" content="Find and join optimal Roblox game servers with Smart Join browser extension">
+  <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
@@ -19,64 +21,64 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
     }
-    
+
     header {
       text-align: center;
       padding: 3rem 0;
       color: white;
     }
-    
+
     header h1 {
       font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
-    
+
     header p {
       font-size: 1.25rem;
       opacity: 0.95;
       max-width: 600px;
       margin: 0 auto;
     }
-    
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
       margin-top: 2rem;
     }
-    
+
     .card {
       background: white;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    
+
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
     .card h2 {
       color: #667eea;
       margin-bottom: 1rem;
       font-size: 1.5rem;
     }
-    
+
     .card p {
       color: #555;
       margin-bottom: 1rem;
     }
-    
+
     .button {
       display: inline-block;
       padding: 0.75rem 1.5rem;
@@ -86,50 +88,51 @@
       border-radius: 8px;
       font-weight: 600;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     .button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     .button-secondary {
       background: #f8f9fa;
       color: #667eea;
       border: 2px solid #667eea;
     }
-    
+
     footer {
       text-align: center;
       padding: 3rem 2rem;
       color: white;
       opacity: 0.9;
     }
-    
+
     footer code {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
       font-family: 'Courier New', monospace;
     }
-    
+
     .icon {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-    
+
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
       }
-      
+
       .cards {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -141,7 +144,8 @@
       <div class="card">
         <div class="icon">🐛</div>
         <h2>Get Help</h2>
-        <p>Found a bug or have a feature request? Report issues directly on GitHub with our easy-to-use support form.</p>
+        <p>Found a bug or have a feature request? Report issues directly on GitHub with our easy-to-use support form.
+        </p>
         <a class="button" href="support.html">Open Support</a>
       </div>
 
@@ -149,7 +153,8 @@
         <div class="icon">💻</div>
         <h2>Source Code</h2>
         <p>Smart Join is open source! View the code, contribute, or fork the project on GitHub.</p>
-        <a class="button button-secondary" href="https://github.com/Frank1o3/Smart-Join" target="_blank">View on GitHub</a>
+        <a class="button button-secondary" href="https://github.com/Frank1o3/Smart-Join" target="_blank">View on
+          GitHub</a>
       </div>
 
       <div class="card">
@@ -176,8 +181,10 @@
 
     <footer>
       <p>Hosted on GitHub Pages</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem;">Fork this repo? Update <code>Frank1o3</code> to your username in the manifest.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem;">Fork this repo? Update <code>Frank1o3</code> to your username in
+        the manifest.</p>
     </footer>
   </div>
 </body>
+
 </html>

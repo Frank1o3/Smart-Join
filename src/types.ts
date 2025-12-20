@@ -21,7 +21,8 @@ export interface Server {
 }
 
 export interface Message {
-    action: "getTopServers" | "getBestServer" | "setWeights";
+    action: "getTopServers" | "getBestServer" | "setWeights" | "openServerInNewTab";
     gameId?: number;
+    serverId?: string;
     weights?: Weights;
-}  
+}

@@ -33,13 +33,22 @@ async function fetchTopServers(gameId: number): Promise<ServerMetrics> {
         if (!data.data || data.data.length === 0) {
             return { previousPageCursor: null, nextPageCursor: null, data: [] };
         }
-        const scored = data.data.map(server => {
+        
+        // Filter out full servers
+        const availableServers = data.data.filter(server => {
+            const playing = server.playing || 0;
+            const maxPlayers = server.maxPlayers || 0;
+            return playing < maxPlayers; // Only include servers that aren't full
+        });
+
+        const scored = availableServers.map(server => {
             const pingQuality = 1000 - (server.ping || 999); // higher value = better
             const score = (parseFloat(server.fps || "0") || 0) * weights.fps
                 + pingQuality * weights.ping
                 + (server.playing || 0) * weights.players;
             return { ...server, score };
         });
+        
         scored.sort((a, b) => b.score - a.score);
         data.data = scored.slice(0, 20).map(({ score, ...server }) => ({ ...server }));
         return data;
@@ -47,4 +56,4 @@ async function fetchTopServers(gameId: number): Promise<ServerMetrics> {
         console.error("Error fetching servers:", error);
         return { previousPageCursor: null, nextPageCursor: null, data: [] };
     }
-} 
+}
