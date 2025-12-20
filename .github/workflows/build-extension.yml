@@ -1,72 +1,62 @@
-name: Release Opera Extension
+# Workflow for building and deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches: [ main ]
+    branches: ["main"]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  release:
+  # Build job
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-
+          node-version: '20'
+          cache: 'npm'
+      
       - name: Install dependencies
         run: npm ci
-
-      - name: Read version from manifest.json
-        id: version
-        run: |
-          VERSION=$(jq -r '.version' src/manifest.json)
-          if [ "$VERSION" = "null" ] || [ -z "$VERSION" ]; then
-            echo "Version not found in manifest.json"
-            exit 1
-          fi
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
-      - name: Build extension
-        run: npm run build
-
-      - name: Package extension
-        run: |
-          cd dist
-          zip -r ../opera-extension-v${{ steps.version.outputs.version }}.zip .
-
-      - name: Create or update release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG="v${{ steps.version.outputs.version }}"
-          FILE="opera-extension-v${{ steps.version.outputs.version }}.zip"
-
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            echo "Release exists, updating assets"
-            gh release upload "$TAG" "$FILE" --clobber
-          else
-            echo "Creating new release"
-            gh release create "$TAG" "$FILE" \
-              --title "Opera Extension $TAG" \
-              --notes "Automated release for version $TAG"
-          fi
-
-      - name: Delete old releases (keep last 5)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          KEEP=5
-          gh release list --limit 100 \
-            | tail -n +$((KEEP + 1)) \
-            | awk '{print $1}' \
-            | while read tag; do
-                echo "Deleting release $tag"
-                gh release delete "$tag" --yes
-              done
+      
+      - name: Build site (generate version.html)
+        run: npm run build:site
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'site'
+  
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
