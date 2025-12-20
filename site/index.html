@@ -3,47 +3,181 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smart Join — Support & Info</title>
+  <title>Smart Join – Roblox Server Browser Extension</title>
+  <meta name="description" content="Find and join optimal Roblox game servers with Smart Join browser extension">
   <style>
-    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:2rem;color:#111}
-    header{margin-bottom:1rem}
-    .card{border:1px solid #ddd;padding:1rem;border-radius:8px;margin:1rem 0}
-    footer{margin-top:2rem;color:#666}
-    a.button{display:inline-block;padding:.5rem 1rem;background:#0069ff;color:#fff;border-radius:6px;text-decoration:none}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      text-align: center;
+      padding: 3rem 0;
+      color: white;
+    }
+    
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    header p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .card h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .card p {
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .button-secondary {
+      background: #f8f9fa;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: white;
+      opacity: 0.9;
+    }
+    
+    footer code {
+      background: rgba(255,255,255,0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Smart Join</h1>
-    <p>Official support site for the <strong>Smart Join</strong> browser extension.</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>🎮 Smart Join</h1>
+      <p>The ultimate browser extension for finding and joining optimal Roblox game servers</p>
+    </header>
 
-  <section class="card">
-    <h2>Get help</h2>
-    <p>Have a bug or feature request? Open a pre-filled GitHub issue on the repository using the Support page.</p>
-    <p><a class="button" href="/support.html">Open Support / Create Issue</a></p>
-  </section>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🐛</div>
+        <h2>Get Help</h2>
+        <p>Found a bug or have a feature request? Report issues directly on GitHub with our easy-to-use support form.</p>
+        <a class="button" href="support.html">Open Support</a>
+      </div>
 
-  <section class="card">
-    <h2>Source code</h2>
-    <p>The extension source is hosted on GitHub:</p>
-    <p><a href="https://github.com/Frank1o3/Smart-Join">https://github.com/Frank1o3/Smart-Join</a></p>
-  </section>
+      <div class="card">
+        <div class="icon">💻</div>
+        <h2>Source Code</h2>
+        <p>Smart Join is open source! View the code, contribute, or fork the project on GitHub.</p>
+        <a class="button button-secondary" href="https://github.com/Frank1o3/Smart-Join" target="_blank">View on GitHub</a>
+      </div>
 
-  <section class="card">
-    <h2>Build & Install</h2>
-    <p>Instructions to build the extension and site are available here:</p>
-    <p><a href="/build.html">Build instructions</a></p>
-  </section>
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h2>Build & Install</h2>
+        <p>Want to build from source? Check out our detailed instructions for developers.</p>
+        <a class="button button-secondary" href="build.html">Build Instructions</a>
+      </div>
 
-  <section class="card">
-    <h2>Privacy & Version</h2>
-    <p><a href="/privacy.html">Privacy Policy</a></p>
-    <p><a href="/version.html">Full version & release notes</a></p>
-  </section>
+      <div class="card">
+        <div class="icon">🔒</div>
+        <h2>Privacy Policy</h2>
+        <p>Your privacy matters. Learn how Smart Join handles your data (spoiler: we don't collect any!).</p>
+        <a class="button button-secondary" href="privacy.html">Privacy Policy</a>
+      </div>
 
-  <footer>
-    <p>Hosted on GitHub Pages — replace <code>Frank1o3</code> with your username if you fork this repo.</p>
-  </footer>
+      <div class="card">
+        <div class="icon">📦</div>
+        <h2>Version Info</h2>
+        <p>View the current version, release notes, and update history.</p>
+        <a class="button button-secondary" href="version.html">Version Details</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Hosted on GitHub Pages</p>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem;">Fork this repo? Update <code>Frank1o3</code> to your username in the manifest.</p>
+    </footer>
+  </div>
 </body>
 </html>

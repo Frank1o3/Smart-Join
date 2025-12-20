@@ -1,65 +1,138 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy Policy — Smart Join</title>
-    <style>
-        body {
-            font-family: system-ui, Segoe UI, Roboto, Arial;
-            margin: 2rem;
-            color: #111
-        }
-
-        h1 {
-            margin-bottom: .5rem
-        }
-
-        p {
-            margin: .5rem 0
-        }
-
-        .muted {
-            color: #666
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy – Smart Join</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    h1 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      color: #764ba2;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .date {
+      color: #999;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    
+    strong {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .highlight {
+      background: #f0f7ff;
+      border-left: 4px solid #667eea;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    
+    .back-link:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Privacy Policy</h1>
-    <p class="muted">Effective date: December 19, 2025</p>
+  <div class="container">
+    <h1>🔒 Privacy Policy</h1>
+    <p class="date">Effective date: December 19, 2025</p>
 
-    <p>Smart Join ("the Extension") is designed to help Roblox players find and join optimal game servers. This Privacy
-        Policy explains what information the Extension collects and how it is used.</p>
+    <p>Smart Join ("the Extension") is designed to help Roblox players find and join optimal game servers. This Privacy Policy explains what information the Extension collects and how it is used.</p>
 
     <h2>Data Collection</h2>
-    <p><strong>No personal data collection:</strong> The Extension does not collect or transmit any personal data or
-        usage telemetry to a remote server by default.</p>
+    <div class="highlight">
+      <p><strong>No personal data collection:</strong> The Extension does not collect or transmit any personal data or usage telemetry to a remote server by default.</p>
+    </div>
 
     <h2>Local Data</h2>
-    <p>The Extension may store settings locally using the browser's storage APIs (for example, preferences about sorting
-        or filtering). This data remains local to the user's browser and is not sent to external services.</p>
+    <p>The Extension may store settings locally using the browser's storage APIs (for example, preferences about sorting or filtering). This data remains local to your browser and is <strong>never sent to external services</strong>.</p>
 
-    <h2>Third-party Services</h2>
-    <p>The Extension does not use analytics or third-party trackers. If the Extension integrates a third-party service
-        in the future, this policy will be updated and the change will be reflected here.</p>
+    <h2>Third-Party Services</h2>
+    <p>The Extension does not use analytics or third-party trackers. If the Extension integrates a third-party service in the future, this policy will be updated and the change will be reflected here with a new effective date.</p>
 
     <h2>Security</h2>
-    <p>We follow reasonable practices to protect locally stored data within the user's browser environment, but we
-        cannot guarantee absolute security—extensions run in the user's browser environment and depend on browser
-        security.</p>
+    <p>We follow reasonable practices to protect locally stored data within your browser environment. However, we cannot guarantee absolute security—extensions run in your browser environment and depend on browser security measures.</p>
 
-    <h2>Contact / Requests</h2>
-    <p>For privacy inquiries or to request deletion of any stored data, open an issue at the project's <a
-            href="https://github.com/Frank1o3/Smart-Join/issues">GitHub Issues</a> or email the repository owner via the
-        contact information listed in the repository.</p>
+    <h2>Contact & Data Requests</h2>
+    <p>For privacy inquiries or to request deletion of any stored data, please open an issue at the project's <a href="https://github.com/Frank1o3/Smart-Join/issues" target="_blank">GitHub Issues</a> page or contact the repository owner via the contact information listed in the repository.</p>
 
-    <h2>Changes</h2>
-    <p>We may update this privacy policy from time to time. When we do, we will update the Effective date at the top of
-        this page.</p>
+    <h2>Policy Changes</h2>
+    <p>We may update this privacy policy from time to time. When we do, we will update the effective date at the top of this page. Continued use of the Extension after changes constitutes acceptance of the updated policy.</p>
 
-    <p><a href="/">← Back</a></p>
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </div>
 </body>
-
 </html>

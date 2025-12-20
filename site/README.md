@@ -1,4 +1,4 @@
-Smart Join — static site
+# Smart Join — static site
 
 This folder contains the static site used for the extension homepage and support pages.
 
