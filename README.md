@@ -20,4 +20,4 @@
 
 ## Screenshot
 
-![Popup Screenshot](screenshot.png)
+![Popup Screenshot](/src/screenshot.png)
