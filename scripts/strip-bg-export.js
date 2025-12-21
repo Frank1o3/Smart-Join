@@ -79,6 +79,7 @@ try {
         copyAllMatching('.css');
         // copy locales directory if it exists
         copyDirIfExists('_locales');
+        copyDirIfExists('icons');
     } else {
         console.log('Ext build not requested — skipping copying extension assets');
     }
