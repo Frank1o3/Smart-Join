@@ -67,19 +67,16 @@ function applyfix(path) {
 }
 
 try {
-    applyfix(path.join(distDir, 'background.js'));
+    // applyfix(path.join(distDir, 'background.js'));
     applyfix(path.join(distDir, 'content.js'));
     applyfix(path.join(distDir, 'popup.js'));
 
     if (doExt) {
         // Copy additional assets into dist (only when ext arg provided)
         copyIfExists('manifest.json');
-        copyIfExists('screenshot.png');
         copyAllMatching('.html');
         copyAllMatching('.css');
-        // copy locales directory if it exists
-        copyDirIfExists('_locales');
-        copyDirIfExists('icons');
+        copyAllMatching('.png');
     } else {
         console.log('Ext build not requested — skipping copying extension assets');
     }
